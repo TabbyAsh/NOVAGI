@@ -1,47 +1,36 @@
 # NovaCut — Local AI Video Editor
 
-NovaCut turns long raw recordings into ranked, editable highlight clips using local audio, visual, scene, motion, transcript, emotional-language, hook, conflict, reaction, and payoff signals.
+NovaCut turns long raw recordings into ranked highlight clips using local audio energy, transcript emotion, hooks, conflict, reactions, and payoff signals.
 
 It requires **no Claude subscription, Codex credits, paid API key, or cloud video upload**.
 
-## Install on Windows
+## Download and run on Windows
 
-1. Click the green **Code** button above.
-2. Click **Download ZIP**.
-3. Extract the downloaded repository ZIP.
-4. Double-click **`INSTALL_NOVACUT.bat`**.
+1. Click **Code → Download ZIP** on this repository.
+2. Extract the downloaded ZIP.
+3. Open the extracted folder.
+4. Double-click **`NOVACUT.bat`**.
+5. Choose your raw video.
 
-The installer reconstructs the original NovaCut package from the included payload, verifies its SHA-256 integrity, extracts it, and opens the editor.
+You can also drag a video directly onto `NOVACUT.bat`.
 
-Windows may display a SmartScreen warning because this is an unsigned batch/PowerShell installer. Choose **More info → Run anyway** only after confirming that you downloaded it from this repository.
+**Do not run the old `INSTALL_NOVACUT.bat`.** It belonged to a failed payload-delivery workaround and is no longer needed. NovaCut now runs directly from the repository files.
 
-## Use NovaCut
+## First launch
 
-After installation, use `NovaCut\NOVACUT.bat`:
+The launcher creates a private Python environment and installs the free local dependencies. The first transcription run downloads the selected Whisper model once; later runs reuse it locally.
 
-- Double-click it to open the video picker and settings window.
-- Or drag a video directly onto it for an automatic gaming-profile run.
-
-The first launch creates a private Python environment and downloads free local dependencies. The first transcription run downloads the chosen Whisper model once. Later runs reuse the local installation and model.
+If Python is not installed, the launcher opens the official Python download page. Install Python 3.10 or newer with **Add Python to PATH** enabled, then run `NOVACUT.bat` again.
 
 ## Output
 
-For a source such as `recording.mp4`, NovaCut creates a results folder containing:
+Beside a source such as `recording.mp4`, NovaCut creates `recording_NovaCut` containing:
 
-- Ranked horizontal clips
-- Ranked vertical 9:16 clips
-- Burned captions and editable `.srt` subtitles
-- An HTML review report
-- Detailed JSON analysis and component scores
-
-## What the first version detects
-
-- Audio energy and sudden peaks
-- Speech and timestamped transcript content
-- Emotional and surprising language
-- Hooks, conflict, reactions, and payoff language
-- Visual motion and scene changes
-- Duplicate/overlapping candidate suppression
+- Ranked horizontal MP4 clips
+- Ranked vertical 9:16 MP4 clips
+- Editable `.srt` subtitle files
+- `review.html`
+- `analysis.json` with timestamps, text, and scores
 
 ## Privacy and cost
 
@@ -49,11 +38,3 @@ For a source such as `recording.mp4`, NovaCut creates a results folder containin
 - No footage upload to an editing service
 - Processing stays on your computer
 - Free local/open-source components
-
-## Integrity
-
-The reconstructed `NovaCut.zip` must match:
-
-`2959c60a725d48e6db3e20cb78da516e986972a889638f272273f8cfc65a5226`
-
-The installer refuses to extract or run the package if the hash does not match.
