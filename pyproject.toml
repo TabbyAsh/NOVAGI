@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "novacut-local"
+version = "0.1.0"
+description = "Local-first AI-assisted video highlight finder and clip exporter"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26,<3",
+  "imageio-ffmpeg>=0.5.1",
+  "faster-whisper>=1.1.0",
+]
+
+[project.scripts]
+novacut = "novacut.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["novacut*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
