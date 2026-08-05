@@ -14,8 +14,7 @@ if not defined PYTHON_CMD (
   echo NovaCut needs Python 3.10 or newer.
   echo Opening the official Python download page...
   start "" "https://www.python.org/downloads/windows/"
-  echo.
-  echo Install Python with "Add Python to PATH" enabled, then double-click this file again.
+  echo Install Python with "Add Python to PATH" enabled, then run NOVACUT.bat again.
   pause
   exit /b 1
 )
@@ -40,7 +39,7 @@ if not exist ".venv\.novacut_ready" (
 
 if not "%~1"=="" (
   echo Processing dragged-in video: %~nx1
-  %PY% -m novacut "%~1" --profile gaming --clips 12
+  %PY% novacut.py "%~1" --clips 12
   if errorlevel 1 goto :failed
   echo.
   echo Finished. Results are beside the original video.
@@ -48,7 +47,7 @@ if not "%~1"=="" (
   exit /b 0
 )
 
-%PY% -m novacut.app
+%PY% novacut.py
 if errorlevel 1 goto :failed
 exit /b 0
 
