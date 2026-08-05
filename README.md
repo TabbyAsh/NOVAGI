@@ -1,28 +1,59 @@
-# NovaCut
+# NovaCut — Local AI Video Editor
 
-NovaCut is a **local-first AI-assisted video editor** that turns long raw recordings into a ranked folder of promising clips. It does not call a paid API and does not upload the recording to an editing service.
+NovaCut turns long raw recordings into ranked, editable highlight clips using local audio, visual, scene, motion, transcript, emotional-language, hook, conflict, reaction, and payoff signals.
 
-## Download
+It requires **no Claude subscription, Codex credits, paid API key, or cloud video upload**.
 
-Use the **Code → Download ZIP** button on this repository, then extract it and run `NOVACUT.bat` on Windows.
+## Install on Windows
 
-## Use it
+1. Click the green **Code** button above.
+2. Click **Download ZIP**.
+3. Extract the downloaded repository ZIP.
+4. Double-click **`INSTALL_NOVACUT.bat`**.
 
-1. Extract the downloaded ZIP.
-2. Double-click **`NOVACUT.bat`**.
-3. Choose a recording and click **Find Highlights**.
+The installer reconstructs the original NovaCut package from the included payload, verifies its SHA-256 integrity, extracts it, and opens the editor.
 
-Or drag a video directly onto `NOVACUT.bat` for an automatic Gaming-profile run.
+Windows may display a SmartScreen warning because this is an unsigned batch/PowerShell installer. Choose **More info → Run anyway** only after confirming that you downloaded it from this repository.
 
-The launcher creates its own private Python environment and installs everything automatically. The first transcription run downloads the selected Whisper speech model once. After that, the model is reused locally.
+## Use NovaCut
+
+After installation, use `NovaCut\NOVACUT.bat`:
+
+- Double-click it to open the video picker and settings window.
+- Or drag a video directly onto it for an automatic gaming-profile run.
+
+The first launch creates a private Python environment and downloads free local dependencies. The first transcription run downloads the chosen Whisper model once. Later runs reuse the local installation and model.
 
 ## Output
 
-For `recording.mp4`, NovaCut creates a results folder containing ranked horizontal clips, vertical 9:16 clips, subtitle files, an HTML review report, and detailed JSON analysis.
+For a source such as `recording.mp4`, NovaCut creates a results folder containing:
+
+- Ranked horizontal clips
+- Ranked vertical 9:16 clips
+- Burned captions and editable `.srt` subtitles
+- An HTML review report
+- Detailed JSON analysis and component scores
+
+## What the first version detects
+
+- Audio energy and sudden peaks
+- Speech and timestamped transcript content
+- Emotional and surprising language
+- Hooks, conflict, reactions, and payoff language
+- Visual motion and scene changes
+- Duplicate/overlapping candidate suppression
 
 ## Privacy and cost
 
-- No paid API key
-- No Claude or Codex subscription
+- No paid API
+- No footage upload to an editing service
 - Processing stays on your computer
-- Open-source local dependencies
+- Free local/open-source components
+
+## Integrity
+
+The reconstructed `NovaCut.zip` must match:
+
+`2959c60a725d48e6db3e20cb78da516e986972a889638f272273f8cfc65a5226`
+
+The installer refuses to extract or run the package if the hash does not match.
